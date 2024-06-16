@@ -1,0 +1,22 @@
+.image-zoomable {
+    width: 300px; /* Taille initiale de l'image */
+    transition: transform 0.3s ease-in-out;
+    border:10px solid red;
+  }
+  .image-zoomable.zoomed {
+    transform: scale(2); /* Agrandit l'image à 200% */
+    z-index: 1000;
+  }
+  .text{
+    /* width: 50vw; */
+    border: 2px solid red;
+  
+    
+  }
+
+  /* .text{
+    transform: scale(1);
+    z-index: 1000;
+    font-size: normal;
+     
+  } */

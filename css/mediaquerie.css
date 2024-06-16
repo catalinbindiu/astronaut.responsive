@@ -1,0 +1,59 @@
+@media screen and (min-width:899px){
+
+ #mobile{
+        
+        display: none;
+        
+    }
+    
+}
+@media screen and (max-width:900px){
+    a[href= "#mobile"] {
+        display: flex;
+        flex-direction: column;
+        width: 40px;
+        height: 40px;
+        border: 1px solid white;
+        padding:  6px 5px;
+        /* position: relative; */
+        gap: 5px;
+        align-items: center;
+   
+    }
+        hr{
+            /* position: absolute; */
+            border:1px solid  white;
+            width: 20px;
+          
+        }
+        ul#mobile{
+            /* position: fixed; */
+            flex-direction: column;
+            width: 100vw;
+            height: 50vh;
+            background: blue;
+            color:red;
+            left: 0;
+            top: 0;
+            justify-content: center;
+           }
+           
+           li{
+            width: 100vw;
+        }
+
+           ul#mobile:not(:target){
+            left: 100%;
+            transition:left 2s linear;
+        }
+    
+        ul#mobile:target{
+            left: 0;
+            transition: left .5s linear;
+        }
+        
+        
+          
+
+        
+}

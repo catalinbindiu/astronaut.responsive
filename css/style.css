@@ -1,0 +1,268 @@
+@import url(nav.css);
+@import url(accessibility.css);
+@import url(mediaquerie.css);
+*{  margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    /* overflow-y: hidden; */
+}
+
+:root{
+    --v:rgb(170,8,234);
+    --h:"Archivo Black", sans-serif;
+}
+::selection{
+    background: var(--v);
+    color: white;
+}
+      
+body{
+    background: black;
+}
+a {
+    text-decoration: none;
+}
+
+#bgvid {
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+.text-cote{
+    position:fixed;
+    transform-origin:0 0;
+    transform: rotate(-90deg);
+    left:0;
+    top: 60vh;
+    font-family:"Archivo", sans-serif;
+    font-weight:100;
+    font-size: 12px;
+    color: white; 
+}
+h1{font-family: var(--h);
+   font-weight:200;
+   color: white;
+}
+sup{-webkit-text-stroke: 1px var(--v);
+ -webkit-text-fill-color: transparent;}
+
+
+ /* debut header*/   
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 10px;
+    background: rgba(128, 128, 128, .3);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index:3;
+    top:0;
+    transition:  background .3s ease-in-out;
+}
+      
+header:hover{
+    background: rgba(179, 2, 179, 0.337);
+}
+
+/*fin header*/
+
+.hero {
+    color:white;
+    padding-top: 108px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+   
+.hero-content{
+    position:relative;
+    width: 100%;
+    min-width: 1px;
+    margin:0 auto;
+    z-index: 1;
+    padding: 0 5% 5vh;
+    border-left: 2px dashed var(--v);
+    border-bottom: 2px dashed var(--v);
+    border-radius: 50px;
+    margin-left: 20px;
+    
+
+}
+.hero-title h3 {
+    font-family:var(--h);
+    margin:0;
+    font-size: 8vw; /* a ne pas mettre px pour responsive*/
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--v);
+    text-transform: uppercase;
+    
+}
+.titre-contour{
+    -webkit-text-stroke: 1px gainsboro ;
+    -webkit-text-fill-color: transparent;
+     position: relative;
+     display: block;
+}
+      
+      /* debut svg */
+      .st0{fill:none;stroke:rgb(246, 246, 246);stroke-width:2;stroke-miterlimit:10;}
+      /* .st1{fill:#ffffff;} */
+        /* .ligne{stroke-dasharray: 100;
+            animation: dessin 5s  infinite linear;}
+    @keyframes dessin{
+        to{stroke-dasharray:1000;}
+    } */
+     .ligne{
+        stroke-dasharray:1000;
+        /* pas de tiret dans la signature */
+        stroke-dashoffset:1000;
+        /*point à la fin de signature*/
+        animation: pirate 2s alternate-reverse ease-in-out infinite;
+        /* position: absolute; */
+     }
+     @keyframes pirate {
+        to{
+            stroke-dashoffset: 0;
+        }
+     }
+
+     svg {position: absolute;
+          top:27vh;
+          left: 0;
+         z-index: -1;}
+    
+     /* fin svg */
+
+     .cote, .normal {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        flex-direction: column;
+        font-family: var(--h);
+        padding: 5vh 5vw;
+        min-width: 280px;
+        /* trés important pour donné de largeur */
+     }
+
+     .cote{
+        width: 60%;
+        /* background: orange; */
+     }
+
+     section :is(p,h2, h3){
+        margin-bottom: 5vh;
+        color:white;
+     }
+
+     .normal{width: 100%;
+     background: white;
+     flex-direction: row;
+     align-items: center;
+     flex-wrap: wrap;
+     padding: 10vw;
+     gap:5vw;
+     max-width: 100%; /* trés important donné de largeur*/
+     position: relative;
+    } 
+
+    .noir{
+        position: absolute;
+        top:17vh;
+    }
+
+
+    h2{
+       font-size: 30px;
+       
+    }
+    .gris{
+        font-size: 15px;
+        color: gainsboro;
+    }
+
+    .normal :is(p,h3,a,h2,q){
+        color:black;
+    }
+
+   .normal :is(article,figure){
+    flex:1;
+    min-width:280px;
+    padding: 5vw;
+   }
+
+ figure>img,#logo>img{
+   max-width: 100%;
+   min-width: 100%;
+   cursor: pointer;
+ }
+
+.btn:hover>.fleche{transform:rotate(45);}
+
+
+/* zonne chiffres */
+
+#chiffre{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    
+}
+.nombres> p{
+    font-size: 60px;
+    flex: 1;
+    text-align:center;
+    min-width:200px;
+}
+ 
+.nombres>p + p {
+    font-size:20px;
+}
+.nombres:first-child >p>span::before{
+ content:"0";
+ animation: chrono .8s linear 1 forwards;
+}
+.nombres:nth-child(2) >p>span::before{
+ content:"0%";
+ animation: chrono1 .5s linear 1 forwards;
+}
+.nombres:last-child >p> span::before{
+ content:"0";
+ animation:  chrono2 1s linear 1 forwards;
+}
+
+@keyframes chrono {
+    0%{content: "15";}
+    20%{content:"26";}
+    40%{content:"33";}
+    60%{content:"42";}
+    80%{content:"61";}
+    100%{content:"70";}
+
+}
+
+@keyframes chrono1 {
+    0%{content: "15";}
+    20%{content:"26";}
+    40%{content:"33";}
+    80%{content:"33";}
+    100%{content:"40";}
+
+}
+
+@keyframes chrono2 {
+    0%{content: "9";}
+    20%{content:"26";}
+    40%{content:"53";}
+    80%{content:"63";}
+    100%{content:"67";}
+    
+
+}
